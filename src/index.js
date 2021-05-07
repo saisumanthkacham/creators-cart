@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {StateProvider} from './pages/state-context.js'
 import App from './App';
-import {BrowserRouter as Router,} from 'react-router-dom';
+import {StateProvider} from "./pages/state-context.js"
+import { BrowserRouter as Router} from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,7 +12,7 @@ ReactDOM.render(
     <App />
     </StateProvider>
     </Router>
-    </React.StrictMode>,
+  </React.StrictMode>,
   document.getElementById('root')
 );
 

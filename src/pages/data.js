@@ -1,8 +1,8 @@
 
 import faker, { seed } from 'faker';
 
-import { useEffect,useState } from "react";
-import axios from 'axios'
+// import { useEffect,useState } from "react";
+// import axios from 'axios'
 faker.seed(123)
 export const data= [...Array(50)].map(item=>({
   pName:faker.commerce.productName(),

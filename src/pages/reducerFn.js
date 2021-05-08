@@ -68,6 +68,11 @@ export function reducerFn(prevState,{type,payLoad}){
         case "ONLY-FAST-DELIVERY":
             return {...prevState,fastDelivery:!prevState.fastDelivery}
 
+         // api calls
+
+        case "GET-DATA-FROM-SERVER":
+            return {...prevState,data:[...payLoad]}
+
         default : return prevState
     }
 

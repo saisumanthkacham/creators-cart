@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom"
 
 
 export function ProductsListing(){
-
+    
     const {state,dispatch}=useStateContext()
     
     let filteredData=({outOfStock,fastDelivery,data})=>{

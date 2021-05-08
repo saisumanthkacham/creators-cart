@@ -1,8 +1,9 @@
 
 import { useParams } from "react-router"
-import {data} from "../data.js"
+import {useStateContext} from "../state-context.js"
 export function Product(){
     const {id}=useParams()
+    const {data} = useStateContext()
     const prod= data.find(item=>item.id===id)
 
     return (<>

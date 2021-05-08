@@ -11,7 +11,8 @@ import {Home} from "./pages/home.jsx"
 import {useStateContext} from "./pages/state-context.js"
 import {PrivateRoute} from "./pages/privateRoute.jsx"
 import { Routes,Route,NavLink,useNavigate} from 'react-router-dom';
-
+// import axios from "axios"
+// import { useEffect } from 'react';
 
 function App() {
   // hooks
@@ -23,6 +24,30 @@ function App() {
     localStorage.setItem("login",JSON.stringify({login:false}))
     navigate("/")
   }
+
+
+
+//  useEffect(()=>{
+
+//   (async ()=> {
+//     console.log("entered the function")
+//     try{
+//       const {data}=await axios.get("https://ecom-api.sumanth5234.repl.co/data")
+//       dispatch({type:"GET-DATA-FROM-SERVER",payLoad:data})
+//     console.log("inside the func",data)
+//     }
+//     catch(err){
+//       console.log(err)
+//     }
+   
+// })()
+
+//  },[])
+  
+   
+
+
+
 
   return (
     <div className="App">

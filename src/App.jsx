@@ -1,18 +1,19 @@
 
 import './index.css';
-import {ProductPage} from "./pages/productsPage/productPage.jsx"
-import {ProductsListing} from "./pages/productsPage/productListing.jsx"
-import {Product} from "./pages/productsPage/product.jsx"
-import {Cart} from "./pages/cart.jsx"
-import {WishList} from "./pages/wishList.jsx"
-import {Error} from "./pages/error.jsx"
-import {Auth} from "./pages/auth.jsx"
-import {Home} from "./pages/home.jsx"
-import {useStateContext} from "./pages/state-context.js"
-import {PrivateRoute} from "./pages/privateRoute.jsx"
+import{
+  ProductPage,
+  ProductsListing,
+  Product,
+  Cart,
+  WishList,
+  Auth,
+  Error,
+  Home,
+  useStateContext,
+  PrivateRoute
+} from "./pages/indexPage.js"
 import { Routes,Route,NavLink,useNavigate} from 'react-router-dom';
-// import axios from "axios"
-// import { useEffect } from 'react';
+
 
 function App() {
   // hooks
@@ -24,29 +25,6 @@ function App() {
     localStorage.setItem("login",JSON.stringify({login:false}))
     navigate("/")
   }
-
-
-
-//  useEffect(()=>{
-
-//   (async ()=> {
-//     console.log("entered the function")
-//     try{
-//       const {data}=await axios.get("https://ecom-api.sumanth5234.repl.co/data")
-//       dispatch({type:"GET-DATA-FROM-SERVER",payLoad:data})
-//     console.log("inside the func",data)
-//     }
-//     catch(err){
-//       console.log(err)
-//     }
-   
-// })()
-
-//  },[])
-  
-   
-
-
 
 
   return (

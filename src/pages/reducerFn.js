@@ -18,6 +18,7 @@ export function reducerFn(prevState,{type,payLoad}){
         // here null values are to be replaced with some snackbars or modals and dynamic name changing to these conditions on button are also should be applied
 
         case "ADD-TO-CART":
+           
            return checkIfItemExistInCart(prevState,payLoad)?{...prevState}:
             {...prevState,cart:[...prevState.cart,payLoad]}
 
@@ -72,6 +73,9 @@ export function reducerFn(prevState,{type,payLoad}){
 
         case "GET-DATA-FROM-SERVER":
             return {...prevState,data:[...payLoad]}
+
+        case "FETCH-CART-FROM-SERVER":
+                return {...prevState,cart:[...payLoad]}
 
         default : return prevState
     }

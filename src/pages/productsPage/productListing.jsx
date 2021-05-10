@@ -1,7 +1,7 @@
 
 import {useStateContext} from "../state-context"
 import {NavLink} from "react-router-dom"
-
+import {addToCartApiFn} from "../../apiCalls"
 
 export function ProductsListing(){
     
@@ -25,7 +25,9 @@ export function ProductsListing(){
         {prod.fastDelivery ? <div>fastDelivery</div>:<div></div>}
         <div>Rating:{prod.ratings}</div>
        
-        <button onClick={()=>dispatch({type:"ADD-TO-CART",payLoad:prod})}>ADD TO CART</button>
+        {/* <button onClick={()=>dispatch({type:"ADD-TO-CART",payLoad:prod})}>ADD TO CART</button> */}
+
+        <button onClick={(dispatch)=>addToCartApiFn(prod,dispatch)}>ADD TO CART</button>
         <button onClick={()=>dispatch({type:"ADD-TO-WISHLIST",payLoad:prod})}>ADD TO WISHLIST</button>
   
       </div>

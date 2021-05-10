@@ -2,6 +2,7 @@ import { createContext, useContext,useReducer,useState } from "react";
 import {reducerFn} from "./reducerFn"
 import axios from "axios"
 import { useEffect } from 'react';
+import {fetchCartFromServerFn} from "../apiCalls.js"
 const StateContext=createContext()
 
 
@@ -21,7 +22,7 @@ export function StateProvider({children}){
     // passed values to reducer function here
     reducerFn(state,dispatch)
 
-    // fetching data from server
+    // fetching intial data from server
     async function GetDataFromServerFn() {
         console.log("loading data from server")
     
@@ -38,15 +39,13 @@ export function StateProvider({children}){
     }
 
     useEffect(()=>{GetDataFromServerFn()},[])
-   
+    useEffect(()=>{fetchCartFromServerFn(dispatch)},[state.cart])    
 
 return <StateContext.Provider value={{state,dispatch,login,setLogin}}>
         {children}
        </StateContext.Provider>
 
 }
-
-
 
 // creating the custom hook using the use context api
 export function useStateContext()

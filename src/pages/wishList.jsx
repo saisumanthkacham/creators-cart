@@ -1,26 +1,28 @@
 
 import {useStateContext} from "./state-context.js"
-
+import {fetchWishListFromServerFn,
+        deleteWishListItemOnServerFn,
+        moveWishListItemToCartOnServerFn} from "../apiCalls.js"
+import {useEffect} from "react"
 
 export function WishList(){
-    const {state,dispatch}=useStateContext()
+    const {state,dispatch,userId}=useStateContext()
+   useEffect(()=>fetchWishListFromServerFn(dispatch,userId),[])
+   const qty=1;
 
-   return <div className="products">
+return <div className="products">
+
+   {state.wishList.map(({productId})=> <div key={productId._id} className="card border">
+   <img src={productId.image} alt="" className="image"/> 
+   <h3>{productId.pName}</h3>
+   <div>₹{productId.price}</div>
   
-
-   {state.wishList.map(prod=> <div key={prod.id} className="card border">
-   <img src={prod.image} alt="" className="image"/> 
-   <h3>{prod.pName}</h3>
-   <div>₹{prod.price}</div>
-   <div>Rating:{prod.ratings}</div>
+   
       <button
-      onClick={()=>dispatch({type:"MOVE-TO-CART",payLoad:prod})}
+      onClick={()=>moveWishListItemToCartOnServerFn(dispatch,userId,productId._id,productId,qty)}
       >MOVE TO CART</button>
-
-      {/* have to implement this feat later */}
-
       <button
-      onClick={()=>dispatch({type:"DELETE-FROM-WISHLIST",payLoad:prod})}
+      onClick={()=>deleteWishListItemOnServerFn(dispatch,userId,productId._id)}
       >DELETE</button>
 
    </div>)}

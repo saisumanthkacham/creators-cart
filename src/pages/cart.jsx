@@ -1,37 +1,47 @@
+import {useEffect} from "react"
 import {useStateContext} from "./state-context.js"
-
+import { incrementCartItemOnServerFn,
+         decrementCartItemOnServerFn,
+         deleteCartItemOnServerFn,
+         fetchCartFromServerFn,
+         moveCartItemToWishListOnServerFn} from "../apiCalls.js"
 
 export function Cart(){
   
-    const {state,dispatch}=useStateContext()
-    let cartValue=state.cart.reduce((acc,item)=>acc+(parseInt(item.price,10)*item.qty),0)
+    const {state,dispatch,userId}=useStateContext()
+    useEffect(()=>{fetchCartFromServerFn(dispatch,userId)},[])
+    let cartValue=state.cart.reduce((acc,{productId,qty})=>acc+(parseInt(productId.price,10)*qty),0)
     let gst=Math.round(cartValue*0.12)
     
 
     return<div>
     <h2>Cart</h2>
     
-    {state.cart.map(item=><div className="h-card border" key={item.id}>
-      <img src={item.image} alt="" className="image"/> 
-
+    {state.cart.map(({productId,qty})=><div className="h-card border" key={productId._id}>
+      <img src={productId.image} alt="" className="image"/> 
+      {console.log("qty from cart",qty)}
       <div>
-      <h4>{item.pName}</h4>
-      <div>₹{item.price*item.qty}</div>
+      <h4>{productId.pName}</h4>
+      <div>₹{productId.price*qty}</div>
       
       <button
-       onClick={()=>dispatch({type:"DECREMENT-IN-CART",payLoad:item})}
+       onClick={()=>decrementCartItemOnServerFn(dispatch,userId,productId._id,qty)}
       >-</button>
-      <small className="border">{item.qty}</small>
+
+      {/* item quantity in cart  */}
+      <small className="border">{qty}</small>
+
       <button
-      onClick={()=>dispatch({type:"INCREMENT-IN-CART",payLoad:item})}
+      onClick={()=>incrementCartItemOnServerFn(dispatch,userId,productId._id,qty)}
       >+</button>  <br/>
       <button
-      onClick={()=>dispatch({type:"DELETE-IN-CART",payLoad:item})}
+      onClick={()=>deleteCartItemOnServerFn(dispatch,userId,productId._id)}
       >DELETE</button>
        <button
-      onClick={()=>dispatch({type:"MOVE-TO-WISHLIST",payLoad:item})}
+      onClick={()=>moveCartItemToWishListOnServerFn(dispatch,userId,productId._id,productId)}
       >MOVE TO WISHLIST</button>
       <br/>
+      <small>{productId.creator}</small>
       </div>
 
     </div>)}

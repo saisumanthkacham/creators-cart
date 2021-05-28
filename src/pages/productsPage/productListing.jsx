@@ -1,11 +1,11 @@
 
 import {useStateContext} from "../state-context"
 import {NavLink} from "react-router-dom"
-import {addToCartApiFn} from "../../apiCalls"
+import {addToCartOnServerFn,addToWishListOnServerFn} from "../../apiCalls"
 
 export function ProductsListing(){
     
-    const {state,dispatch}=useStateContext()
+    const {state,dispatch,userId}=useStateContext()
     
     let filteredData=({outOfStock,fastDelivery,data})=>{
         return data
@@ -13,22 +13,18 @@ export function ProductsListing(){
          .filter(item=>(fastDelivery?item.fastDelivery:item))}
   
     const getFiltered= filteredData(state)
-  
+    const qty=1;
     return <div className="products">
     {getFiltered.map((prod)=>(
-      <div key={prod.id} className="card border">
+      <div key={prod._id} className="card border">
         <img src={prod.image} alt="" className="image"/> 
-       <NavLink to={`/products/${prod.id}`} activeClassName="active-name-link" className="name-link" > <h3>{prod.pName}</h3></NavLink>
+       <NavLink to={`/products/${prod._id}`} activeClassName="active-name-link" className="name-link" > <h3>{prod.pName}</h3></NavLink>
         <div>₹{prod.price}</div>
-        <div>{prod.material}</div>
         {prod.inStock ? <div>inStock</div>:<div>OutOfStock</div>}
         {prod.fastDelivery ? <div>fastDelivery</div>:<div></div>}
-        <div>Rating:{prod.ratings}</div>
        
-        {/* <button onClick={()=>dispatch({type:"ADD-TO-CART",payLoad:prod})}>ADD TO CART</button> */}
-
-        <button onClick={(dispatch)=>addToCartApiFn(prod,dispatch)}>ADD TO CART</button>
-        <button onClick={()=>dispatch({type:"ADD-TO-WISHLIST",payLoad:prod})}>ADD TO WISHLIST</button>
+        <button onClick={(dispatch)=>addToCartOnServerFn(dispatch,userId,prod._id,qty)}>ADD TO CART</button>
+        <button onClick={(dispatch)=>addToWishListOnServerFn(dispatch,userId,prod._id)}>ADD TO WISHLIST</button>
   
       </div>
     )

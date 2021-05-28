@@ -14,6 +14,7 @@ export function Auth(){
     useEffect(()=>{
         const response=JSON.parse(localStorage.getItem("login"))
         setLogin(response?.login&&response.login)
+        navigate("/")
     },[])
 
     function loginHandler(userName,password,user){

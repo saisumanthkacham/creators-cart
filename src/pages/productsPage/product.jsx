@@ -1,6 +1,7 @@
 
 import { useParams } from "react-router"
 import {useStateContext} from "../state-context.js"
+
 export function Product(){
     const {id}=useParams()
     const {data} = useStateContext()

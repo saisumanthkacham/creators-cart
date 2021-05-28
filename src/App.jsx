@@ -49,7 +49,7 @@ function App() {
       <NavLink to="/"  end     activeClassName="active-btn" className="btn" >Home</NavLink>&nbsp;
       <NavLink to="/products"  activeClassName="active-btn" className="btn" >products</NavLink>&nbsp;
       <NavLink to="/cart"      activeClassName="active-btn" className="btn" >cart</NavLink>&nbsp;
-      <NavLink to="/WishList"  activeClassName="active-btn" className="btn" >wishList</NavLink>
+      <NavLink to="/wishList"  activeClassName="active-btn" className="btn" >wishList</NavLink>
     
       {login &&<button onClick={()=>{logOutHandler()}}  className="btn">logout</button>}
 
@@ -60,9 +60,9 @@ function App() {
             <Route  path="/:id" element={<Product/>}/>
         </Route>
         <PrivateRoute path="/cart" element={<Cart/>}/>
-        <PrivateRoute path="/WishList" element={<WishList/>}/>
-        <Route path="*" element={<Error/>}/>
+        <PrivateRoute path="/wishList" element={<WishList/>}/>
         <Route  path="/auth" element={<Auth/>}/>
+        <Route path="*" element={<Error/>}/>
       </Routes>
 
     </div>

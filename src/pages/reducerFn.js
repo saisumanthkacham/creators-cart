@@ -18,9 +18,9 @@ export function reducerFn(prevState,{type,payLoad}){
         // here null values are to be replaced with some snackbars or modals and dynamic name changing to these conditions on button are also should be applied
 
         case "ADD-TO-CART":
-           
            return checkIfItemExistInCart(prevState,payLoad)?{...prevState}:
             {...prevState,cart:[...prevState.cart,payLoad]}
+        
 
         case "ADD-TO-WISHLIST":
             return checkIfItemExistInWishList(prevState,payLoad)?{...prevState}:
@@ -30,28 +30,28 @@ export function reducerFn(prevState,{type,payLoad}){
         // cart functionalities
         case "MOVE-TO-WISHLIST":
             return checkIfItemExistInWishList(prevState,payLoad) ? {...prevState} :
-            {...prevState,wishList:[...prevState.wishList,payLoad],cart:prevState.cart.filter(it=>it.id!==payLoad.id)}
+            {...prevState,wishList:[...prevState.wishList,payLoad],cart:prevState.cart.filter(it=>it.id!==payLoad._id)}
 
-        case "INCREMENT-IN-CART":                         
+        case "INCREMENT-CART-ITEM":                         
             return {...prevState,cart: prevState.cart.map(it=>it.id===payLoad.id ? {...it,qty:it.qty+1}:it)}
         
-        case "DECREMENT-IN-CART":
+        case "DECREMENT-CART-ITEM":
             return {...prevState,cart: prevState.cart.map(it=>it.id===payLoad.id 
             ? (it.qty>1 ? {...it,qty:it.qty-1}:it)
             : it
             )}   
 
-        case "DELETE-IN-CART":
+        case "DELETE-CART-ITEM":
             return {...prevState,cart: prevState.cart.filter(it=>it.id!==payLoad.id)}
 
 
         //  wishList functionalities
-        case "DELETE-FROM-WISHLIST":
+        case "DELETE-WISHLIST-ITEM":
             return {...prevState,wishList: prevState.wishList.filter(it=>it.id!==payLoad.id)}
 
         case "MOVE-TO-CART":
             return  checkIfItemExistInCart(prevState,payLoad) ? {...prevState} : 
-            {...prevState,cart:[...prevState.cart,payLoad],wishList:prevState.wishList.filter(it=>it.id!==payLoad.id)}
+            {...prevState,cart:[...prevState.cart,payLoad],wishList:prevState.wishList.filter(it=>it.id!==payLoad.product.productId._id)}
 
             
         // sort functionalities
@@ -76,6 +76,9 @@ export function reducerFn(prevState,{type,payLoad}){
 
         case "FETCH-CART-FROM-SERVER":
                 return {...prevState,cart:[...payLoad]}
+
+        case "FETCH-WISHLIST-FROM-SERVER":
+            return {...prevState,wishList:[...payLoad]}
 
         default : return prevState
     }

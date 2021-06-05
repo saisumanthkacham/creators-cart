@@ -70,7 +70,7 @@ body {
     }
 
     .bottom-border{
-      border-bottom: 2px solid var(--primary-color);
+      border-bottom: 4px solid var(--primary-color);
     }
 
     /* this class is for whenever the cart or wishlist is empty */
@@ -218,11 +218,13 @@ body {
     .aside{
       grid-area:aside;
       text-align:left;
-      align-items: center;
+      align-items: flex-start;
       border-radius: 0.5rem;
       background-color: white;
       box-shadow: 1px 5px 5px #ccc;
-   
+      display: flex;
+      flex-direction: column;
+      
     }
 
     .main {
@@ -241,8 +243,10 @@ body {
       align-items: center;
     }
 
-  .aside ul{
-    border-bottom: 1.1px solid var(--primary-color);
+  .aside hr{
+    border: 2px solid var(--primary-color);
+    width: 99%;
+    
     }
     
 

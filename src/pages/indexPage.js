@@ -4,10 +4,12 @@ import {Product} from "./productsPage/product.jsx"
 import {Cart} from "./cart.jsx"
 import {WishList} from "./wishList.jsx"
 import {Error} from "./error.jsx"
-import {Auth} from "./auth.jsx"
+import {Login} from "./login.jsx"
 import {Home} from "./home.jsx"
 import {useStateContext} from "./state-context.js"
 import {PrivateRoute} from "./privateRoute.jsx"
+import {Signup} from "./signupPage.jsx"
+import {User} from "./userPage.jsx"
 
 export{
     ProductPage,
@@ -15,9 +17,11 @@ export{
     Product,
     Cart,
     WishList,
-    Auth,
+    Login,
     Error,
     Home,
     useStateContext,
-    PrivateRoute
+    PrivateRoute,
+    Signup,
+    User
 }

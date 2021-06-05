@@ -46,7 +46,9 @@ import axios from "axios"
                 data:{"productId":productId,"qty":1}
             })
             console.log("addtocart response from server",resp)
+            resp.status===201&& console.log("product added to cart on db")
             resp.status===201?dispatch({type:"ADD-TO-CART",payLoad:{productId,qty}}): console.log("error from addtoCartApifn")
+            
         }
         catch(err){
         console.log("cannot add the product to cart",{error:err})
@@ -66,6 +68,7 @@ import axios from "axios"
                 data:{"qty":qty}
             })
             resp.status===201 ? dispatch({type:"INCREMENT-CART-ITEM",payLoad:{id:productId}}) : console.log("error from incrementCartItemOnServerFn")
+            resp.status===201&&console.log("product incremented on backend")
         }
         catch(err){
         console.log("eror could not increment the cart item",err)
@@ -210,6 +213,7 @@ export async function deleteCartItemOnServerFn(dispatch,userId,productId){
                     url:`https://creators-cart-DB.sumanth5234.repl.co/users/${userId}/wishList`,
                     data:{"productId":productId}
                 })
+            console.log("payload from add to cart",productId)
             console.log("addtoWishList response from server",resp)
             resp.status===201?dispatch({type:"ADD-TO-WISHLIST",payLoad:productId}): console.log("error from addToWishListOnServerFn")
         }

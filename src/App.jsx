@@ -1,57 +1,53 @@
 
 import './index.css';
+
 import{
   ProductPage,
   ProductsListing,
   Product,
   Cart,
   WishList,
-  Auth,
+  Login,
   Error,
   Home,
-  useStateContext,
-  PrivateRoute
+  PrivateRoute,
+  Signup,
+  User,
+  
 } from "./pages/indexPage.js"
 import { Routes,Route,NavLink,useNavigate} from 'react-router-dom';
 
 
+
 function App() {
   // hooks
-  const{state,dispatch,login,setLogin}= useStateContext()
   const navigate=useNavigate()
 
-  function logOutHandler(){
-    setLogin(false)
-    localStorage.setItem("login",JSON.stringify({login:false}))
-    navigate("/")
-  }
-
+  
 
 
   return (
-    <div className="App">
-    
-     {/* sorting ka buttons */}
-     <input type="radio" name="sort" id="" onClick={()=>dispatch({type:"HIGH-TO-LOW"})}/>
-     <label>HIGH-TO-LOW</label>
-     <input type="radio" name="sort" id="" onClick={()=>dispatch({type:"LOW-TO-HIGH"})}/>
-     <label>LOW-TO-HIGH</label>
+    <div className="App ">
 
-      {/* filters  */}
-      <br/>
-      <input type="checkbox" checked={state.outOfStock} onChange={()=>dispatch({type:"INCLUDE-OUT-OF-STOCK"})} />
-      <label>INCLUDE-OUT-OF-STOCK</label><br/>
-      <input type="checkbox" checked={state.fastDelivery} onChange={()=>dispatch({type:"ONLY-FAST-DELIVERY"})} />
-      <label>FAST-DELIVERY</label>
-      <br/>
+      {/* navbar */}
+      <nav className="nav">
+        
+        <div className="white-font nav-logo" onClick={()=>{navigate("/")}}>Creators Cart</div>
+        <div >
+          <NavLink to="/"  end     activeClassName="active-btn" className="btn bold" >Home</NavLink>&nbsp;
+          <NavLink to="/products"  activeClassName="active-btn" className="btn bold" >Products</NavLink>&nbsp;
+         
+        </div>
+        <div>
+          <NavLink to="/cart"      activeClassName="active-btn" className="btn" ><i className="fas fa-shopping-cart text-sm"></i></NavLink>&nbsp;
+          <NavLink to="/wishList"  activeClassName="active-btn" className="btn" ><i className="fas fa-heart text-sm"></i></NavLink>
+          <NavLink to="/user"  activeClassName="active-btn" className="btn" ><i className="fas fa-user text-sm "></i></NavLink>
+          
+          
+        </div>
+      </nav>
 
-      &nbsp;
-      <NavLink to="/"  end     activeClassName="active-btn" className="btn" >Home</NavLink>&nbsp;
-      <NavLink to="/products"  activeClassName="active-btn" className="btn" >products</NavLink>&nbsp;
-      <NavLink to="/cart"      activeClassName="active-btn" className="btn" >cart</NavLink>&nbsp;
-      <NavLink to="/wishList"  activeClassName="active-btn" className="btn" >wishList</NavLink>
-    
-      {login &&<button onClick={()=>{logOutHandler()}}  className="btn">logout</button>}
+     
 
       <Routes>
       <Route  path="/" element={<Home/>}/>
@@ -61,11 +57,16 @@ function App() {
         </Route>
         <PrivateRoute path="/cart" element={<Cart/>}/>
         <PrivateRoute path="/wishList" element={<WishList/>}/>
-        <Route  path="/auth" element={<Auth/>}/>
+        <Route  path="/login" element={<Login/>}/>
+        <Route  path="/signup" element={<Signup/>}/>
+        <PrivateRoute  path="/user" element={<User/>}/>
         <Route path="*" element={<Error/>}/>
       </Routes>
 
+     
+
     </div>
+
   );
 }
 

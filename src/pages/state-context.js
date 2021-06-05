@@ -11,8 +11,16 @@ export function StateProvider({children}){
         cart:[],
         wishList:[],
         data:[],
-        outOfStock:false,
-        fastDelivery:false
+        filteredDataByPlatforms:[],
+        filters:{ 
+            outOfStock:false,
+            fastDelivery:false,
+            youtube:false,
+            instagram:false,
+            twitter:false,
+            linkedin:false
+        }
+       
     }
 
     const[state,dispatch]=useReducer(reducerFn,intialState)

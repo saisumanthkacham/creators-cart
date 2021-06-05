@@ -73,7 +73,7 @@ return <section className="body">
         <br/><br/><br/>👇<br/>
         <b>FUN FEATURE:</b><br/>  
         <div className="black-bg">
-        <p className="primary-font">Wanna have some Fun, you can try editing this website by just clicking the below button </p>
+        <p className="primary-font">Wanna have some Fun, you can try editing text on this website by just clicking the below button </p>
         <div className=" btn grey-font" onClick={()=>document.designMode="on"}> Edit Website</div>
         <div className=" btn white-font" onClick={()=>document.designMode="off"}> stop editing</div><br/>
         </div>

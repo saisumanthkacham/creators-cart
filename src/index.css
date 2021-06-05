@@ -204,7 +204,7 @@ body {
     /* grids */
     .body{
       display: grid;
-      grid-template-columns:  14rem 1fr;
+      grid-template-columns:  0.22fr 1fr;
       grid-template-rows:5.5rem 1fr ;
       grid-template-areas:
        "nav nav"

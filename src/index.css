@@ -20,6 +20,7 @@ body {
     display: flex;
     flex-direction: row !important;
     flex-wrap: wrap;
+    
     }
 
     .bold{
@@ -112,7 +113,7 @@ body {
 
     /* wishlist */
     .wishList{
-      padding: 9.3rem 0rem 0 1.5rem;
+      padding: 8rem 0rem 0 1.5rem;
     }
 
     /* cart */
@@ -205,7 +206,7 @@ body {
     .body{
       display: grid;
       grid-template-columns:  0.22fr 1fr;
-      grid-template-rows:5.5rem 1fr ;
+      grid-template-rows:0.1vw 1fr ;
       grid-template-areas:
        "nav nav"
        "aside main"
@@ -224,12 +225,13 @@ body {
       box-shadow: 1px 5px 5px #ccc;
       display: flex;
       flex-direction: column;
-      
+      margin-top:6rem ;
     }
 
     .main {
       grid-area: main;
       padding: 3.7rem;
+      margin-top:4.3rem ;
     }
 
     

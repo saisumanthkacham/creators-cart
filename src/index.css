@@ -141,17 +141,17 @@ body {
     /* homepage */
 
     .home-img{
-      width:40rem;
-      height: 50rem;
+      width:52vw;
+      height: 150vh;
       position: absolute;
-      top: -5rem;
+      top: -6rem;
       left: -6rem;
     }
     .home-text{
       position: absolute;
-      top: 8rem;
+      top: 10rem;
       right: 10rem;
-      width: 30rem;
+      width: 80vh;
     }
     .home-categories{
       position: absolute;
@@ -238,6 +238,8 @@ body {
     .aside .btn{
         margin: 0 0 0 1rem;
     }
+
+   
     
     .aside li{
       display: flex;

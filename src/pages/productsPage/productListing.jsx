@@ -35,11 +35,14 @@ return <section className="body">
 
     {/* filters section in products page UI */}
     <section className="aside" >
-    &nbsp;
-        
+    
+      
         <div onClick={()=>dispatch({type:"CLEAR-ALL-FILTERS"})}className="btn secondary-bg ">
          Clear Filters
         </div>
+          
+       
+        
         <br/>
         <hr/>
 

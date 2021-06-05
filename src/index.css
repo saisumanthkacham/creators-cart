@@ -141,8 +141,8 @@ body {
     /* homepage */
 
     .home-img{
-      width:52vw;
-      height: 150vh;
+      width:40rem;
+      height: 52rem;
       position: absolute;
       top: -6rem;
       left: -6rem;

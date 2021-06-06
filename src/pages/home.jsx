@@ -45,10 +45,10 @@ export function Home(){
             <div><h3>made with ❤️ by Sai sumanth aka Namasthe Kaka </h3></div>
             
             <div className="wide-row wide-icons">
-            <a href="https://www.linkedin.com/in/kacham-sai-sumanth-33a513176/"><i className="fab fa-linkedin fa-2x white-font"></i></a>
-            <a href="https://github.com/saisumanthkacham/creators-cart/tree/development"><i className="fab fa-github fa-2x white-font"></i></a>
+            <a href="https://www.linkedin.com/in/kacham-sai-sumanth-33a513176/"><i className="fab fa-linkedin fa-2x primary-font"></i></a>
+            <a href="https://github.com/saisumanthkacham/creators-cart/tree/development"><i className="fab fa-github fa-2x primary-font"></i></a>
            
-            <div>   <a href="https://github.com/saisumanthkacham/Dunzo-UI/tree/development"><i className="fab fa-github-alt fa-2x white-font"></i></a></div>
+            <div>   <a href="https://github.com/saisumanthkacham/Dunzo-UI/tree/development"><i className="fab fa-github-alt fa-2x primary-font"></i></a></div>
             </div>
 
         </div>

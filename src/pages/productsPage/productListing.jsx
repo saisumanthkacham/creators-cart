@@ -25,7 +25,6 @@ export function ProductsListing(){
         .filter(item=>(fastDelivery?item.fastDelivery:item))}
           
         const filteredData= filteringData(state)
-        // console.log("filtered data",filteredData)
         const qty=1;
 
 

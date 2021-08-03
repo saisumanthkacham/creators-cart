@@ -1,3 +1,5 @@
+import { faSoap } from "@fortawesome/free-solid-svg-icons"
+import { getDefaultNormalizer } from "@testing-library/dom"
 import {useNavigate} from "react-router-dom"
 import pic from "../images/homePic.svg"
 import {useStateContext} from "./state-context.js"
@@ -53,5 +55,4 @@ export function Home(){
 
         </div>
        
-    </section>
-}
+    </section>}

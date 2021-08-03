@@ -35,14 +35,12 @@ export function reducerFn(prevState,{type,payLoad}){
             {...prevState,wishList:[...prevState.wishList,{productId:payLoad}],cart:prevState.cart.filter(it=>it.productId._id!==payLoad.id)}
 
         case "INCREMENT-CART-ITEM": 
-                   
             return {...prevState,cart: prevState.cart.map(it=>it.productId._id===payLoad.id ? {...it,qty:it.qty+1}:it)}
         
         case "DECREMENT-CART-ITEM":
             return {...prevState,cart: prevState.cart.map(it=>it.productId._id===payLoad.id ? (it.qty>1 ? {...it,qty:it.qty-1}:it): it)}   
 
         case "DELETE-CART-ITEM":
-            
             return {...prevState,cart: prevState.cart.filter(it=>it.productId._id!==payLoad.id)}
 
 

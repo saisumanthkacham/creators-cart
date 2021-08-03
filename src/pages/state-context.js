@@ -28,7 +28,7 @@ export function StateProvider({children}){
     
     // calling reducer function here since it should be inside the state provider
     reducerFn(state,dispatch)
-    // we have to get this data from server
+    // we have to get user data from server
     const userId="60b1020e9e6d1500fa3f251c"
 
     useEffect(()=>{GetDataFromServerFn(dispatch)},[])

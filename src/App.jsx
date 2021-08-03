@@ -2,21 +2,10 @@
 import './index.css';
 
 import{
-  ProductPage,
-  ProductsListing,
-  Product,
-  Cart,
-  WishList,
-  Login,
-  Error,
-  Home,
-  PrivateRoute,
-  Signup,
-  User,
-  
-} from "./pages/indexPage.js"
+        ProductPage,ProductsListing,Product,Cart,WishList,Login,Error,Home,PrivateRoute,Signup,User,
+      } from "./pages/indexPage.js"
 import { Routes,Route,NavLink,useNavigate} from 'react-router-dom';
-
+import {ToastContainer} from "react-toastify"
 
 
 function App() {
@@ -63,7 +52,7 @@ function App() {
         <Route path="*" element={<Error/>}/>
       </Routes>
 
-     
+     <ToastContainer/>
 
     </div>
 

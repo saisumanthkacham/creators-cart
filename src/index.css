@@ -4,7 +4,6 @@
 @import "react-toastify/dist/ReactToastify.css";
 body {
     margin: 0;
-     /* font-family: 'Lato', sans-serif; */
      font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -71,6 +70,13 @@ body {
 
     .bottom-border{
       border-bottom: 4px solid var(--primary-color);
+    }
+
+    .minus{
+      cursor: pointer;
+    }
+    .plus{
+      cursor: pointer;
     }
 
     /* this class is for whenever the cart or wishlist is empty */

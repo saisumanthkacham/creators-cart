@@ -58,14 +58,14 @@ export function CartItemsExist(){
                <div className="center">
                      <div className="cd-increment-decrement-btns">
                            <div className="icon-sm secondary-bg" onClick={()=>decrementCartItemOnServerFn(dispatch,userId,productId._id,qty)}>
-                                 <i className="fas fa-minus fa-1x white-font"></i>
+                                 <i className="fas fa-minus fa-1x white-font minus"></i>
                            </div>
  
                            {/* item quantity in cart  */}
                            <p>{qty}</p>
  
                            <div className="icon-sm secondary-bg" onClick={()=>incrementCartItemOnServerFn(dispatch,userId,productId._id,qty)}>
-                                   <i className="fas fa-plus fa-1x white-font"></i>
+                                   <i className="fas fa-plus fa-1x white-font plus"></i>
                            </div><br/>
                      </div>
  

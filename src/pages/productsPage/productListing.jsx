@@ -1,7 +1,8 @@
 
 import {useStateContext} from "../state-context"
 import {NavLink} from "react-router-dom"
-import {addToCartOnServerFn,addToWishListOnServerFn} from "../../apiCalls"
+import {addToCartOnServerFn} from "../../apiCalls"
+import { WishListButton } from "../../components/wishListButton";
 
 export function ProductsListing(){
       const discount=0.25;
@@ -89,7 +90,7 @@ return <section className="body">
         {filteredData.map((prod)=>(<div key={prod._id} className="cd">
             <div>
               <img src={prod.image} alt="" className="cd-img"/> 
-              <i onClick={()=>addToWishListOnServerFn(dispatch,userId,prod._id)} className="fas fa-heart fa-lg cd-icon white-font"></i>
+              <WishListButton dispatch={dispatch} userId={userId} prodId={prod._id} state={state} />
               {prod.inStock ? null:<div className="cd-badge black-bg orange-font">OutOfStock</div>}
             </div>
          

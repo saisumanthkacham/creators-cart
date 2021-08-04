@@ -15,7 +15,7 @@ export function Login(){
     useEffect(()=>{
         const response=JSON.parse(localStorage.getItem("login"))
         setLogin(response?.login&&response.login)
-        response?.login&&navigate("/")
+        response?.login&&navigate("/login")
     },[])
 
     function loginHandler(userName,password,user){

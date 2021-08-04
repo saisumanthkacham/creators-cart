@@ -58,7 +58,7 @@ export function WishListItemsDontExist(){
    return <>
        <div className="empty-bin ">
             <h3 className="bottom-border">what brooooooo... empty WishList!!</h3>
-            <p>Wish something brooo... click the below button bro👇</p>
+            <p>add something brooo... click the below button 👇</p>
             <div className="btn secondary-bg "  onClick={()=>navigate("/products")} >Shop Today's Deals</div>
 
       </div>

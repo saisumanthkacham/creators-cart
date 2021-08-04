@@ -15,7 +15,6 @@ export function reducerFn(prevState,{type,payLoad}){
    
     switch(type){
         
-        // here null values are to be replaced with some snackbars or modals and dynamic name changing to these conditions on button are also should be applied
 
         case "ADD-TO-CART":
             console.log("add to cart line no 21",payLoad)

@@ -227,7 +227,7 @@ export async function deleteCartItemOnServerFn(dispatch,userId,productId){
                     url:`https://creators-cart-DB.sumanth5234.repl.co/users/${userId}/wishList`,
                     data:{"productId":productId}
                 })
-            console.log("payload from add to cart",productId)
+            console.log("payload from add to wishlist",productId)
             console.log("addtoWishList response from server",resp)
             resp.status===201?dispatch({type:"ADD-TO-WISHLIST",payLoad:productId}): toast.error(`error in adding product to wishlist...`,{position:"bottom-right"})
             resp.status===201&&toast.info(` product added to wishlist`,{position:"bottom-right"})

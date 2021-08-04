@@ -31,7 +31,7 @@ function App() {
           <NavLink to="/cart"      activeClassName="active-btn" className="btn" ><i className="fas fa-shopping-cart text-sm"></i></NavLink>&nbsp;
           <NavLink to="/wishList"  activeClassName="active-btn" className="btn" ><i className="fas fa-heart text-sm"></i></NavLink>
           <NavLink to="/user"  activeClassName="active-btn" className="btn" ><i className="fas fa-user text-sm "></i></NavLink>
-          
+          <a href="https://github.com/saisumanthkacham/creators-cart/tree/development/src"  className="btn"><i class="fab fa-github text-sm"></i></a>
           
         </div>
       </nav>

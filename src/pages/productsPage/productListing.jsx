@@ -1,8 +1,10 @@
 
 import {useStateContext} from "../state-context"
 import {NavLink} from "react-router-dom"
-import {addToCartOnServerFn} from "../../apiCalls"
 import { WishListButton } from "../../components/wishListButton";
+import { AddToCartButton } from "../../components/addToCartButton";
+
+
 
 export function ProductsListing(){
       const discount=0.25;
@@ -97,9 +99,7 @@ return <section className="body">
             <div className="cd-info">
               <NavLink to={`/products/${prod._id}`} activeClassName="active-name-link" className="name-link" > <h3>{prod.pName}</h3></NavLink>
               <p>{prod.price*(1-discount)}<s className="grey-font"> ₹{prod.price}</s> <span className="green-font">({discount*100}%Off)</span> </p>
-
-              <div className="btn secondary-bg " disabled={prod.inStock} onClick={()=>{addToCartOnServerFn(dispatch,userId,prod._id,qty)}}>ADD TO CART</div>
-
+              <AddToCartButton dispatch={dispatch} userId={userId} prodId={prod._id} qty={qty} state={state} />
             </div>
      
         </div>))}

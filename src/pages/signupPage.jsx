@@ -11,7 +11,7 @@ export function Signup(){
        <input className="input-box" placeholder="new password"   type="password" /><br/>
       <div className="btn btn-lg primary-bg ">signup</div>
       <div className="wide-row">
-           <small>Forgot password?</small> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          
            
       </div>
       

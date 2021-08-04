@@ -1,6 +1,9 @@
 
 import {useNavigate} from 'react-router-dom';
 import{ useStateContext} from "./indexPage.js"
+import { toast } from 'react-toastify';
+
+
 export function User(){
 
     const{setLogin}= useStateContext()
@@ -10,6 +13,7 @@ export function User(){
       setLogin(false)
       localStorage.setItem("login",JSON.stringify({login:false}))
       navigate("/")
+      toast.info(`Hey, you are successfully logged out!! `,{position:"bottom-right"})
     }
 
     return (<div className="user-page">

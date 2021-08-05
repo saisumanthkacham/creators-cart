@@ -91,7 +91,7 @@ return <section className="body">
     <section className="productsListing main">
         {filteredData.map((prod)=>(<div key={prod._id} className="cd">
             <div>
-              <img src={prod.image} alt="" className="cd-img"/> 
+              <NavLink to={`/products/${prod._id}`}> <img src={prod.image} alt="" className="cd-img"/> </NavLink>
               <WishListButton dispatch={dispatch} userId={userId} prodId={prod._id} state={state} />
               {prod.inStock ? null:<div className="cd-badge black-bg orange-font">OutOfStock</div>}
             </div>

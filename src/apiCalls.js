@@ -72,7 +72,7 @@ import {toast} from "react-toastify"
                 data:{"qty":qty}
             })
             resp.status===201 ? dispatch({type:"INCREMENT-CART-ITEM",payLoad:{id:productId}}) : toast.error(`error in incrementing the quantity`,{position:"bottom-right"})
-            resp.status===201&&toast.info(`quantity incremented`,{position:"bottom-right"})
+           
         }
         catch(err){
         console.log("eror could not increment the cart item",err)
@@ -91,7 +91,7 @@ import {toast} from "react-toastify"
             })
             
             resp.status===201 ? dispatch({type:"DECREMENT-CART-ITEM",payLoad:{id:productId}}) :  toast.error(`error in decrementing the quantity`,{position:"bottom-right"})
-            resp.status===201 && toast.info(`decremented the quantity`,{position:"bottom-right",autoClose:2000})
+           
         }
         catch(err){
             console.log("eror could not decrement the item",err)
